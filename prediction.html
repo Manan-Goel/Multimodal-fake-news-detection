@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Fake News Detection</title>
+  </head>
+  <body class="bg-gray-200">
+    <header class="text-gray-600 body-font -my-8">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Fake News Detection</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+            <a class="mr-5 hover:text-gray-900">About us</a>
+            <a href="/prediction" class="mr-5 hover:text-gray-900">Prediction</a>
+            <a class="mr-5 hover:text-gray-900">Contact us</a>
+          </nav>
+        </div>
+    </header>
+    <hr>
+    <section class="text-gray-600 body-font -my-8">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h2 class="text-xs text-green-500 tracking-widest font-medium title-font mb-1">Machine Learning Project</h2>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Fake News Detection</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Analyze news headlines to determine if they are fake or real.</p>
+            <br><p class="text-primary" id="prediction-result"><b></b></p>
+          </div>
+          <div class="center">
+            <form onsubmit="return false;">
+                <div class="mb-3">
+                  <label for="news" class="form-label">Enter News Headlines</label>
+                  <input type="text" class="form-control" id="news" name="news">
+                  <div id="emailHelp" class="form-text">Your input will be analyzed for fake news.</div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="generatePrediction()">Submit</button>
+            </form>
+          </div>
+        </div>
+    </section>
+
+    <script>
+      function generatePrediction() {
+        const prediction = Math.random() < 0.5 ? "Real" : "Fake";
+        
+        // Display the prediction result
+        document.getElementById("prediction-result").innerHTML = `<b>Prediction: ${prediction}</b>`;
+      }
+    </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+</html>
